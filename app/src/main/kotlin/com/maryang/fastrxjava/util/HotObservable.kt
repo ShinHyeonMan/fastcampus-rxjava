@@ -58,6 +58,10 @@ object HotObservable {
     }
 
     fun logAsyncSubject() {
+
+        /**
+         * onComplete 전 마지막 item 받음
+         */
         val subject = AsyncSubject.create<Int>()
         subject.subscribe {
             Log.d(TAG, "AsyncSubject subscriber1 value $it")
@@ -72,6 +76,10 @@ object HotObservable {
     }
 
     fun logPublishSubject() {
+
+        /**
+         * subscribe() 이후 item 받음
+         */
         val subject = PublishSubject.create<Int>()
         subject.subscribe {
             Log.d(TAG, "PublishSubject subscriber1 value $it")
@@ -86,6 +94,11 @@ object HotObservable {
     }
 
     fun logBehaviorSubject() {
+
+        /**
+         * 가장 최근 item 받음
+         * subscribe() 이후 item 받음
+         */
         val subject = BehaviorSubject.create<Int>()
         subject.subscribe {
             Log.d(TAG, "BehaviorSubject subscriber1 value $it")
@@ -100,6 +113,11 @@ object HotObservable {
     }
 
     fun logReplaySubject() {
+
+        /**
+         * 이전 item들 받음
+         * subscribe() 이후 item 받음
+         */
         val subject = ReplaySubject.create<Int>()
         subject.subscribe {
             Log.d(TAG, "ReplaySubject subscriber1 value $it")
